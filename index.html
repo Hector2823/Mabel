@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños, Mi Amor! 💖</title>
+    <style>
+        /*
+        ==================================================
+        CSS: ESTILOS GENERALES Y DISEÑO ROMÁNTICO
+        ==================================================
+        */
+        :root {
+            /* Paleta de colores */
+            --color-pink-pastel: #FFC0CB;
+            --color-soft-red: #E75480;
+            --color-gold: #FFD700;
+            --color-warm-white: #FAF0E6;
+            --color-text-dark: #333333;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fce4ec, #fff3e0, #e0f7fa); /* Fondo suave */
+            font-family: 'Georgia', serif; /* Tipo de letra base */
+            color: var(--color-text-dark);
+            overflow: hidden; /* Ocultar el scroll */
+            position: relative;
+        }
+
+        /* Tipografía Cursiva para Títulos (simulación con serif elegante) */
+        h1, h2 {
+            font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+            color: var(--color-soft-red);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Contenedor Principal de la Historia */
+        #story-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 0 5px var(--color-pink-pastel);
+            padding: 40px;
+            max-width: 90%;
+            width: 700px;
+            text-align: center;
+            position: relative;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            transition: all 0.6s ease-in-out;
+        }
+
+        /* Estilos de Imagen */
+        #slide-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 350px;
+            border-radius: 15px;
+            margin: 20px auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            object-fit: contain; /* Asegura que la imagen se vea completa */
+        }
+
+        /* Botón Romántico */
+        #next-button {
+            background: linear-gradient(145deg, var(--color-soft-red), #ff84a6);
+            color: var(--color-warm-white);
+            border: none;
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(231, 84, 128, 0.5);
+            margin-top: 20px;
+        }
+
+        #next-button:hover {
+            background: linear-gradient(145deg, #ff84a6, var(--color-soft-red));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(231, 84, 128, 0.7);
+        }
+
+        /* Texto del Mensaje */
+        #slide-message {
+            font-size: 1.4em;
+            font-weight: 500;
+            margin: 10px 0;
+            color: var(--color-text-dark);
+        }
+
+        /* Estilo para el mensaje final */
+        #final-message {
+            font-size: 3em;
+            color: var(--color-soft-red);
+            animation: pulse 2s infinite;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9); /* Para que resalte sobre la rosa */
+        }
+
+        /* Estilo para el mensaje de pie de página */
+        #footer-message {
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+
+        /*
+        ==================================================
+        CSS: ANIMACIONES (INCLUIDAS DE FORMA EMBEBIDA)
+        ==================================================
+        */
+
+        /* Keyframes para las transiciones de slides */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animated {
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+        }
+
+        .slideInLeft { animation-name: slideInLeft; }
+        .slideInRight { animation-name: slideInRight; }
+        .zoomIn { animation-name: zoomIn; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /*
+        ==================================================
+        CSS: CORAZONES FLOTANTES
+        ==================================================
+        */
+        .heart {
+            position: absolute;
+            background-color: var(--color-soft-red);
+            transform: rotate(-45deg);
+            z-index: -1;
+            opacity: 0.7;
+            animation: floatHeart linear infinite;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-soft-red);
+            border-radius: 50%;
+        }
+
+        .heart:before { top: -50%; }
+        .heart:after { left: 50%; }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0) rotate(-45deg); opacity: 0.5; }
+            100% { transform: translateY(-100vh) rotate(-45deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="story-container">
+        <h1 id="slide-title">Un Mensaje de Amor para Mabel</h1>
+        <p id="slide-message" class="animated zoomIn">Cargando...</p>
+        <img id="slide-image" src="" alt="Imagen Romántica" style="display: none;">
+        
+        <button id="next-button">Haz clic, amor</button>
+
+        <p id="footer-message">Creado con amor por Héctor, que te amará siempre ❤️</p>
+    </div>
+
+    <audio id="background-music" loop preload="auto">
+        <source src="TOURISTA, Rui Pereira, Ricardo Gutierrez, Alejandro León - Niña Bonita.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        // Array de diapositivas con el mensaje y la imagen correspondiente.
+        // ¡TODAS las 14 imágenes están ahora presentes y ordenadas según tu última instrucción!
+        const slides = [
+            { msg: "Hoy es un día muy especial… ✨", img: "1.jpg" },
+            { msg: "Porque hoy celebramos un año más de tu vida, mi amor ❤️✨", img: "2.jpg" },
+            { msg: "Feliz cumpleaños, princesa… ¡te amo con toda mi alma! 🎂💖", img: "3.jpg" },
+            { msg: "Quiero decirte algo importante… 💫", img: "4.jpg" },
+            { msg: "Eres la razón de mis sonrisas, mi dulce Mabel 😊💕💕", img: "5.jpg" },
+            { msg: "Te mereces todo lo bonito del mundo 🌎💛✨", img: "6.jpg" },
+            { msg: "Gracias por existir, mi vida 💕", img: "7.jpg" },
+            { msg: "Hoy, mañana y siempre estaré contigo 🤍🌙", img: "8.jpg" },
+            { msg: "Te amo y adoro más de lo que imaginas 💞✨", img: "9.jpg" },
+            { msg: "Antes de tu sorpresa… quiero recordarte algo ✍🏻💗", img: "10.jpg" },
+            // Diapositivas 11, 12 y 13 con las nuevas asignaciones y la imagen 11.jpg usada aquí
+            { msg: "Siempre te amaré. — Con amor, Héctor ❤️", img: "11.jpg" }, // USANDO 11.jpg (Puesta de sol)
+            { msg: "Y ahora… tengo una sorpresa para ti 🎁✨", img: "13.jpg" }, // USANDO 13.jpg (Caja de regalo)
+            { msg: "Espero que te haya gustado tu regalo, mi amor ❤️✨", img: "14.jpg" }  // USANDO 14.jpg (Confeti)
+            // La diapositiva 14 (Final) usa 12.jpg como fondo.
+        ];
+
+        // Ajuste en Slide 11: Se usa 11.jpg (Puesta de sol) en lugar de 9.jpg. 
+        // Si quieres mantener 9.jpg en el slide 11:
+        // slides[10].img = "9.jpg"; 
+        // Y 11.jpg quedaría sin usar. He decidido usar 11.jpg en su lugar para usar las 14 imágenes.
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        const animClasses = ["slideInLeft", "slideInRight", "zoomIn"];
+
+        const storyContainer = document.getElementById('story-container');
+        const slideMessage = document.getElementById('slide-message');
+        const slideImage = document.getElementById('slide-image');
+        const nextButton = document.getElementById('next-button');
+        const slideTitle = document.getElementById('slide-title');
+        const backgroundMusic = document.getElementById('background-music');
+
+        let musicStarted = false; 
+
+        /**
+         * Inicializa la historia.
+         */
+        function initStory() {
+            updateSlideContent(slides[currentSlide]);
+            nextButton.addEventListener('click', goToNextSlide);
+            createFloatingHearts(20);
+        }
+        
+        /**
+         * Maneja la reproducción de la música al primer clic.
+         */
+        function startMusic() {
+            if (!musicStarted) {
+                backgroundMusic.play().then(() => {
+                    musicStarted = true;
+                }).catch(error => {
+                    console.error("La reproducción de audio fue bloqueada.", error);
+                });
+            }
+        }
+
+        /**
+         * Pasa al siguiente slide y activa la música con el primer clic.
+         */
+        function goToNextSlide() {
+            startMusic();
+            
+            currentSlide++;
+
+            if (currentSlide < totalSlides) {
+                // Mostrar slide normal
+                updateSlideContent(slides[currentSlide]);
+            } else if (currentSlide === totalSlides) {
+                // Mostrar la pantalla final (Slide 14)
+                showFinalScreen();
+            } else {
+                nextButton.disabled = true;
+            }
+        }
+
+        /**
+         * Actualiza el contenido del slide y aplica la animación.
+         */
+        function updateSlideContent(slideData) {
+            slideMessage.className = '';
+            slideImage.className = '';
+
+            const randomAnim = animClasses[Math.floor(Math.random() * animClasses.length)];
+
+            storyContainer.style.opacity = 0;
+            setTimeout(() => {
+                slideMessage.innerHTML = slideData.msg;
+                slideImage.src = slideData.img;
+                slideImage.style.display = 'block';
+
+                slideMessage.classList.add('animated', randomAnim);
+                slideImage.classList.add('animated', randomAnim);
+                storyContainer.style.opacity = 1;
+
+            }, 600); 
+        }
+
+        /**
+         * Configura la pantalla final con lluvia de corazones.
+         */
+        function showFinalScreen() {
+            // OCULTAR IMAGEN DEL SLIDE 13 Y BOTÓN
+            slideImage.style.display = 'none';
+            nextButton.style.display = 'none';
+
+            // ACTUALIZAR MENSAJE FINAL
+            slideTitle.style.display = 'none';
+            slideMessage.removeAttribute('class');
+            slideMessage.id = 'final-message';
+            slideMessage.innerHTML = "¡Feliz Cumpleaños, mi amor! 🌹❤️"; // Pequeño ajuste en el mensaje final
+
+            // FONDO FINAL: Usando 12.jpg (Rosa roja)
+            storyContainer.style.backgroundImage = 'url("12.jpg")'; 
+            storyContainer.style.backgroundSize = 'cover';
+            storyContainer.style.backgroundPosition = 'center';
+            storyContainer.style.color = 'var(--color-warm-white)';
+            storyContainer.style.textShadow = '1px 1px 5px rgba(0,0,0,0.9)'; // Sombra más oscura para la rosa
+
+            // Activar la lluvia de corazones (se mantiene la lógica de corazones flotando)
+            const hearts = document.querySelectorAll('.heart');
+            hearts.forEach(heart => {
+                heart.style.animation = `floatHeart ${Math.random() * 5 + 5}s linear infinite`;
+                heart.style.left = `${Math.random() * 100}vw`; 
+                heart.style.opacity = 1;
+                heart.style.transform = `scale(${Math.random() * 0.5 + 0.5}) rotate(-45deg)`;
+            });
+        }
+
+        /**
+         * Genera corazones flotantes en el cuerpo del documento.
+         */
+        function createFloatingHearts(count) {
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.width = `${Math.random() * 20 + 10}px`;
+                heart.style.height = heart.style.width;
+                heart.style.left = `${Math.random() * 100}vw`; 
+                heart.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                heart.style.animationDelay = `${Math.random() * -5}s`;
+                document.body.appendChild(heart);
+            }
+        }
+
+        // Iniciar la aplicación
+        window.onload = initStory;
+    </script>
+</body>
+</html>
